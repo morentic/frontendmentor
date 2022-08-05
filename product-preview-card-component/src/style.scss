@@ -1,0 +1,124 @@
+@import "../node_modules/the-new-css-reset/css/reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+
+// primary colors
+$dark-cyan: hsl(158, 36%, 37%);
+$cream: hsl(30, 38%, 92%);
+// neutral colors
+$very-dark-blue: hsl(212, 21%, 14%);
+$dark-grayish-blue: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+body {
+  background-color: $cream;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  font-family: "Fraunces", serif;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: $white;
+  max-width: 35rem;
+
+  &-image {
+    background-image: var(--card-image-mobile);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 15rem;
+  }
+
+  &-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      color: $dark-grayish-blue;
+      text-transform: uppercase;
+      letter-spacing: 0rem;
+    }
+
+    .text {
+      color: $dark-grayish-blue;
+      line-height: 1.5rem;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+
+      > :first-child {
+        font-family: "Fraunces", serif;
+        color: $dark-cyan;
+        font-size: 2rem;
+      }
+
+      > :nth-child(2) {
+        margin-left: 1.5rem;
+        text-decoration: line-through;
+        color: $dark-grayish-blue;
+      }
+    }
+
+    .add-to-cart {
+      background-color: $dark-cyan;
+      color: $white;
+      padding: 1rem 0;
+      border-radius: 0.5rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      transition: transform 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: hsl(158, 36%, 20%);
+      }
+      &:active {
+        transform: translateY(10%);
+      }
+    }
+
+    .icon-cart {
+      margin-right: 0.5rem;
+      height: 1rem;
+    }
+  }
+}
+
+@media (min-width: 90em) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &-image {
+      background-image: var(--card-image-desktop);
+    }
+  }
+}

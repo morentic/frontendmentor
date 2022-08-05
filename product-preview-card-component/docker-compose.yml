@@ -1,0 +1,10 @@
+services:
+  node:
+    image: node:16
+    user: node
+    volumes:
+      - "./:/home/node/app"
+    working_dir: /home/node/app
+    ports:
+      - "1234:1234"
+    command: bash -c "yarn install && yarn dev"
